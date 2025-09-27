@@ -10,3 +10,7 @@ export const pool = new Pool({
   password: config.PASSWORD,
   port: config.PORT_DB,
 })
+
+pool.connect()
+  .then(() => console.log('Database connected'))
+  .catch(err => console.error('DB connection error:', err))

@@ -1,12 +1,13 @@
 import dotenv from 'dotenv'
+dotenv.config() // вызываем сразу
 
-dotenv.config()
+console.log('DB_USER:', process.env.DB_USER)
 
-const PORT = process.env.PORT || 3000
 const USER = process.env.DB_USER
 const HOST = process.env.DB_HOST
 const DATABASE = process.env.DB_NAME
 const PASSWORD = process.env.DB_PASSWORD
-const PORT_DB = process.env.DB_PORT
+const PORT_DB = Number(process.env.DB_PORT)
+const PORT = Number(process.env.PORT) || 3000
 
-export default { USER, DATABASE, PASSWORD, PORT, HOST, PORT_DB }
+export default { USER, HOST, DATABASE, PASSWORD, PORT_DB, PORT }

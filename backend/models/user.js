@@ -11,19 +11,29 @@ export const fetchUserById = async (id) => {
   return transformUser(res.rows[0])
 }
 
-export const insertUser = async (user) => {
+export const queryInsertUser = async (user) => {
   const res = await pool.query(
     `INSERT INTO users (name, email, phone, group_id) VALUES ($1, $2, $3, $4) RETURNING *`,
-    [user.name, user.email, user.phone, user.group_id]
+    [ user.name, user.email, user.phone, user.group_id ]
   )
   return transformUser(res.rows[0])
 }
 
-// export const updateUser = async (id, user) => {
-//   const res = await pool.query(
-//     `UPDAT`
-//   )
-// }
+export const queryUpdateUser = async (id, user) => {
+  const res = await pool.query(
+    `UPDATE users SET name = $1, email = $2, phone = $3, group_id = $4 WHERE id = $5 RETURNING *`,
+    [ user.name, user.email, user.phone, user.group_id, id ]
+  )
+  return transformUser(res.rows[0])
+}
+
+export const queryDeleteUser = async (id) => {
+  const res = await pool.query(
+    `DELETE FROM users WHERE id = $1 RETURNING *`,
+    [ id ]
+  )
+  return transformUser(res.rows[0])
+}
 
 const transformUser = (user) => {
   return {
