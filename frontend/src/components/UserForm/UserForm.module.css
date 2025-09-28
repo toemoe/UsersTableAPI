@@ -1,0 +1,66 @@
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.formCard label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.formCard input,
+.formCard select {
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.formCard input:focus,
+.formCard select:focus {
+  border-color: #007bff;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.buttonGroup button {
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buttonGroup button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.buttonGroup button:first-child:hover {
+  background-color: #0056b3;
+}
+
+.buttonGroup button:last-child {
+  background-color: #e0e0e0;
+}
+
+.buttonGroup button:last-child:hover {
+  background-color: #c0c0c0;
+}

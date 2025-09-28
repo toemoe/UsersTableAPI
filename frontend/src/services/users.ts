@@ -45,3 +45,18 @@ export async function updateUserById(id: number, data: Partial<User>): Promise<U
   }
   return result.json()
 }
+
+export async function addUser(data: Omit<User, "id">): Promise<User> {
+  const result = await fetch(`${apiUrl}/users`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (!result.ok) {
+    throw new Error(`Failed to add user: ${result.statusText}`);
+  }
+  return result.json();
+}

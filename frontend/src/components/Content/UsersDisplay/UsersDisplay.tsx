@@ -32,7 +32,9 @@ const UserTable = ({visibleCount}: UserTableProps) => {
   useEffect(() => {
     const filtered = users.filter(user => {
       const nameMatch = user.name.toLowerCase().includes(nameFilter.toLocaleLowerCase())
-      const groupMatch = user.group?.name.toLowerCase().includes(groupFilter.toLocaleLowerCase()) ?? true
+      const groupMatch = groupFilter
+      ? (user.group?.name ?? "none").toLowerCase().includes(groupFilter.toLocaleLowerCase())
+      : true
       return nameMatch && groupMatch
     }).sort((a , b) => a.id - b.id);
     setFilteredUsers(filtered);
