@@ -12,35 +12,40 @@
   justify-content: center;
 }
 
-.landing div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  margin-top: 0.5rem;
-  @media (max-width: 768px) {
+.cards {
+  display: none;
+}
+
+
+
+@media (max-width: 768px) {
+  .cards {
+    display: flex;
     flex-direction: column;
-    align-items: baseline;
-    width: 100%;
-    gap: 0.6rem;
+    gap: 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .card {
+    background-color: var(--primary-color);
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    padding: 1.2rem;
+    color: var(--dark-gray);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .card div {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6px;
+  }
+
+  .card div:last-of-type {
+    border-bottom: none;
   }
 }
-
-.landing div p {
-  margin: 0;
-}
-
-.landing div input {
-  height: 1.5rem;
-  width: 8.5rem;
-  border: 1px solid var(--dark-color);
-  border-radius: 4px;
-  @media (max-width: 768px) {
-    width: 20rem;
-  }
-}
-
 .landing p {
   color: var(--dark-gray);
   font-weight: 600;
@@ -54,6 +59,9 @@
   background-color: var(--primary-color);
   border-radius: 8px;
   overflow: hidden;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .landing table th {

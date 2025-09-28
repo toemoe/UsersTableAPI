@@ -1,0 +1,28 @@
+.filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: baseline;
+    width: 100%;
+    gap: 0.6rem;
+  }
+}
+
+.filter p {
+  margin: 0;
+}
+
+.filter input {
+  height: 1.5rem;
+  width: 15rem;
+  border: 1px solid var(--dark-color);
+  border-radius: 4px;
+  @media (max-width: 768px) {
+    width: 20rem;
+  }
+}

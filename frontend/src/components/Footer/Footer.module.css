@@ -11,5 +11,21 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
-  background-color: var(--primary-color);
+}
+
+.loadMoreButton {
+    margin-top: 0.5rem;
+    background-color: var(--dark-color);
+    color: var(--white);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.loadMoreButton:hover {
+    background-color: var(--dark-gray);
 }

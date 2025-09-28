@@ -1,12 +1,13 @@
 import styles from './Footer.module.css'
 
-const Footer = () => {
+interface FooterProps {
+  onLoadMore: () => void
+}
+
+const Footer = ({onLoadMore}: FooterProps) => {
   return (
     <footer className={styles.footer}>
-      <div className="pagination">
-        1 2 3 4
-        <button>next</button>
-      </div>
+      <button onClick={onLoadMore} className={styles.loadMoreButton}>Load More</button>
     </footer>
   )
 }
