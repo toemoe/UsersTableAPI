@@ -60,3 +60,10 @@ export async function addUser(data: Omit<User, "id">): Promise<User> {
   }
   return result.json();
 }
+
+export async function deleteUser(id: number): Promise<void> {
+  const result = await fetch(`${apiUrl}/users/${id}`, { method: 'DELETE' });
+  if (!result.ok) {
+    throw new Error( `Failed to delete user with id ${id}: ${result.statusText}` );
+  }
+}

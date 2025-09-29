@@ -41,3 +41,8 @@
 .userCard button:hover {
   background-color: var(--dark-gray);
 }
+
+.userCard div {
+  display: flex;
+  gap: 2rem;
+}

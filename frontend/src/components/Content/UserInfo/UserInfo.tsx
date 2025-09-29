@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type { User } from "../../../types/types";
-import { fetchGroups, fetchUserById } from "../../../services/users";
+import { fetchGroups, fetchUserById, deleteUser } from "../../../services/users";
 import styles from './UserInfo.module.css';
 import { updateUserById } from "../../../services/users";
 import UserForm from "../../UserForm/UserForm";
@@ -50,6 +50,16 @@ const UserInfo = () => {
 
   const handleCancel = () => { setEdit(false) }
 
+  const handleClickDelete = async () => { 
+    if (!user) return;
+    if (!window.confirm(`Are you sure you want to delete user ${user.name}?`)) return;
+
+    try {
+      await deleteUser(user.id);
+      window.location.href = '/users';
+    } catch (error) { console.error('Error deleting user:', error) }
+  }
+
 
   if (!user) return <div>Loading...</div>;
 
@@ -63,7 +73,10 @@ const UserInfo = () => {
         <p>Email: {user.email}</p>
         <p>Phone: {user.phone ?? "—"}</p>
         <p>Group: {user.group?.name ?? "none"}</p>
-        <button onClick={handleClickEdit}>Edit</button>
+        <div>
+          <button onClick={handleClickEdit}>Edit</button>
+          <button onClick={handleClickDelete}>Delete</button>
+        </div>
         </>
       )}
     </div>
